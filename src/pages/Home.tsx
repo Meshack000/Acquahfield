@@ -108,7 +108,7 @@ export default function Home() {
               <Link
                 key={name}
                 to="/academics"
-                className="group relative flex min-h-36 flex-col overflow-hidden rounded-2xl border border-brand-200/70 bg-white p-4 shadow-soft transition hover:-translate-y-1 hover:shadow-pop sm:min-h-48 sm:rounded-card sm:p-6"
+                className="group relative flex min-h-36 flex-col overflow-hidden rounded-2xl border border-brand-200/70 bg-white p-4 transition-colors hover:border-brand-500/60 sm:min-h-48 sm:rounded-card sm:p-6"
               >
                 <span className={`absolute inset-x-0 top-0 h-1 ${bar}`} />
                 <span className="flex items-center justify-between gap-2">
