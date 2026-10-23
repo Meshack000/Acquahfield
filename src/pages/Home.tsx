@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Baby, Blocks, BookOpen, GraduationCap, MapPin } from "lucide-react";
+import { ArrowRight, Baby, Blocks, BookOpen, GraduationCap, MapPin, Sparkles } from "lucide-react";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
@@ -48,8 +48,8 @@ export default function Home() {
             </h1>
 
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/90">
-              A welcoming Montessori school where every child is seen, challenged and celebrated,
-              from Creche through Grade 7.
+              A 21st-century, STEM-oriented Montessori education that nurtures curiosity,
+              creativity, and each child’s unique potential.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -69,6 +69,27 @@ export default function Home() {
         </div>
 
         <div className="rainbow-bar absolute inset-x-0 bottom-0 h-1.5" />
+      </section>
+
+      <section className="bg-white px-5 py-12 sm:py-16">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 rounded-card bg-brand-50 p-6 sm:p-10 md:grid-cols-[auto_1fr] md:gap-10">
+          <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft">
+            <Sparkles size={28} />
+          </span>
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-600">
+              Montessori meets tomorrow
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
+              Curious minds. Confident futures.
+            </h2>
+            <p className="mt-3 max-w-3xl leading-relaxed text-muted">
+              At Acquahfield, children are encouraged to think critically, explore ideas, and
+              learn with purpose. We support every child in growing into a confident,
+              compassionate, and creative learner.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* LEARNING LEVELS */}
