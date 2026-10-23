@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core (uniform + building blue) */
+  --color-navy-950: #071540;
+  --color-navy-900: #0b1f5c;
+  --color-navy-800: #12307f;
+  --color-brand-600: #1f68b3;
+  --color-brand-500: #2f84e0;
+  --color-brand-200: #bcd9f6;
+  --color-brand-50: #eef6fe;
+
+  /* Rainbow accents (from the building) */
+  --color-bubblegum: #f0508f;
+  --color-tangerine: #f5993f;
+  --color-sunshine: #ffc93c;
+  --color-mint: #3cc8b4;
+  --color-lilac: #a58be0;
+
+  /* Neutrals */
+  --color-cream: #fffaf2;
+  --color-ink: #1a2142;
+  --color-muted: #5a6385;
+
+  --font-display: "Fredoka", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.75rem;
+  --shadow-soft: 0 10px 30px -10px rgb(11 31 92 / 0.18);
+  --shadow-pop: 0 18px 40px -14px rgb(11 31 92 / 0.35);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream font-sans text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display text-navy-900 tracking-tight; }
+  ::selection { background: var(--color-sunshine); color: var(--color-navy-900); }
+}
+
+@layer utilities {
+  .rainbow-bar {
+    background: linear-gradient(
+      90deg,
+      var(--color-bubblegum),
+      var(--color-tangerine),
+      var(--color-sunshine),
+      var(--color-mint),
+      var(--color-brand-500),
+      var(--color-lilac)
+    );
+  }
+}
