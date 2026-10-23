@@ -71,26 +71,40 @@ export default function Home() {
         <div className="rainbow-bar absolute inset-x-0 bottom-0 h-1.5" />
       </section>
 
-      {/* LEVEL CARDS (overlap the hero) */}
-      <section className="relative z-10 mx-auto -mt-28 max-w-7xl px-5">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {levels.map(({ name, ages, icon: Icon, bar, tint }) => (
-            <Link
-              key={name}
-              to="/academics"
-              className="group relative overflow-hidden rounded-card bg-white p-6 shadow-pop transition hover:-translate-y-1"
-            >
-              <span className={`absolute inset-x-0 top-0 h-1.5 ${bar}`} />
-              <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${tint}`}>
-                <Icon size={24} />
-              </span>
-              <h3 className="mt-4 text-xl font-semibold">{name}</h3>
-              <p className="mt-1 text-muted">{ages}</p>
-              <span className="mt-4 inline-flex items-center gap-1 font-display text-sm font-medium text-navy-900 transition group-hover:gap-2 group-hover:text-bubblegum">
-                Learn more <ArrowRight size={16} />
-              </span>
-            </Link>
-          ))}
+      {/* LEARNING LEVELS */}
+      <section className="bg-brand-50/70 px-4 py-12 sm:px-5 sm:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-7 text-center sm:mb-9">
+            <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-600">
+              Our learning journey
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">
+              Learning for every stage
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            {levels.map(({ name, ages, icon: Icon, bar, tint }) => (
+              <Link
+                key={name}
+                to="/academics"
+                className="group relative flex min-h-36 flex-col overflow-hidden rounded-2xl border border-brand-200/70 bg-white p-4 shadow-soft transition hover:-translate-y-1 hover:shadow-pop sm:min-h-48 sm:rounded-card sm:p-6"
+              >
+                <span className={`absolute inset-x-0 top-0 h-1 ${bar}`} />
+                <span className="flex items-center justify-between gap-2">
+                  <span className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12 sm:rounded-2xl ${tint}`}>
+                    <Icon size={20} className="sm:hidden" />
+                    <Icon size={24} className="hidden sm:block" />
+                  </span>
+                  <ArrowRight size={18} className="text-muted transition group-hover:translate-x-1 group-hover:text-bubblegum sm:hidden" />
+                </span>
+                <h3 className="mt-3 text-base font-semibold leading-tight sm:mt-4 sm:text-xl">{name}</h3>
+                <p className="mt-1 text-sm text-muted sm:text-base">{ages}</p>
+                <span className="mt-auto hidden items-center gap-1 pt-4 font-display text-sm font-medium text-navy-900 transition group-hover:gap-2 group-hover:text-bubblegum sm:inline-flex">
+                  Learn more <ArrowRight size={16} />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>
