@@ -8,8 +8,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 shadow-soft backdrop-blur">
-      <div className="rainbow-bar h-1.5" />
+    <header className="sticky top-0 z-50 border-b border-brand-200 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         <Link to="/" className="font-display text-xl font-semibold text-navy-900">
           {school.short}
@@ -28,7 +27,7 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
-          <Button to="/admissions" variant="accent">Enrol now</Button>
+          <Button to="/admissions" variant="primary">Enrol now</Button>
         </nav>
 
         <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">

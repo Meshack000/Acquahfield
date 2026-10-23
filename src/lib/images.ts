@@ -1,11 +1,11 @@
-import facade from "@/assets/images/f.png";
-import classroomCollab from "@/assets/images/c.png";
-import classroomStudy from "@/assets/images/d.png";
-import studentWriting from "@/assets/images/e.png";
+import facade from "@/assets/images/f.webp";
+import classroomCollab from "@/assets/images/c.webp";
+import classroomStudy from "@/assets/images/d.webp";
+import studentWriting from "@/assets/images/e.webp";
 import mockElection from "@/assets/images/g.webp";
-import electionOfficials from "@/assets/images/h.png";
-import youngDoctors from "@/assets/images/i.png";
-import youngVoter from "@/assets/images/j.png";
+import electionOfficials from "@/assets/images/h.webp";
+import youngDoctors from "@/assets/images/i.webp";
+import youngVoter from "@/assets/images/j.webp";
 
 export const img = {
   facade,

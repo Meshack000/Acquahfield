@@ -36,17 +36,3 @@
   h1, h2, h3, h4 { @apply font-display text-navy-900 tracking-tight; }
   ::selection { background: var(--color-sunshine); color: var(--color-navy-900); }
 }
-
-@layer utilities {
-  .rainbow-bar {
-    background: linear-gradient(
-      90deg,
-      var(--color-bubblegum),
-      var(--color-tangerine),
-      var(--color-sunshine),
-      var(--color-mint),
-      var(--color-brand-500),
-      var(--color-lilac)
-    );
-  }
-}

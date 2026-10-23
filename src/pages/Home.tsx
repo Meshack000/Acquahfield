@@ -1,26 +1,98 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, Baby, Blocks, BookOpen, GraduationCap, MapPin } from "lucide-react";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
 
+const levels = [
+  { name: "Creche", ages: "Babies & toddlers", icon: Baby, bar: "bg-bubblegum", tint: "bg-bubblegum/10 text-bubblegum" },
+  { name: "Kindergarten", ages: "KG 1 – KG 2", icon: Blocks, bar: "bg-tangerine", tint: "bg-tangerine/15 text-tangerine" },
+  { name: "Lower Primary", ages: "Grade 1 – 3", icon: BookOpen, bar: "bg-mint", tint: "bg-mint/15 text-mint" },
+  { name: "Upper Primary", ages: "Grade 4 – 7", icon: GraduationCap, bar: "bg-brand-500", tint: "bg-brand-500/10 text-brand-500" },
+];
+
 export default function Home() {
+  const words = school.tagline.split(" ");
+  const lead = words.slice(0, -2).join(" ");
+  const tail = words.slice(-2).join(" ");
+
   return (
-    <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 lg:grid-cols-2">
-      <div>
-        <p className="font-display text-bubblegum">Creche · KG · Grade 1–7</p>
-        <h1 className="mt-3 text-5xl font-semibold leading-tight md:text-6xl">{school.tagline}</h1>
-        <p className="mt-5 max-w-lg text-lg text-muted">
-          A warm, colourful place in {school.location} where every child is seen, challenged and celebrated.
-        </p>
-        <div className="mt-8 flex gap-3">
-          <Button to="/admissions" variant="accent">Enquire now</Button>
-          <Button to="/about" variant="ghost">About us</Button>
+    <>
+      {/* HERO */}
+      <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-navy-950 px-5 pb-44 pt-20 text-white">
+        <img
+          src={img.facade}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_70%] md:object-bottom"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/90 via-navy-950/55 to-navy-950/10"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy-950/60 to-transparent"
+        />
+
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-sunshine" />
+              Creche · KG · Grade 1–7
+            </span>
+
+            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] text-white md:text-7xl">
+              {lead} <span className="text-sunshine">{tail}</span>
+            </h1>
+
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/90">
+              A welcoming Montessori school where every child is seen, challenged and celebrated,
+              from Creche through Grade 7.
+            </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <Button to="/admissions" variant="accent">
+                Enquire now <ArrowRight size={18} />
+              </Button>
+              <Button to="/about" variant="ghost">
+                About us
+              </Button>
+            </div>
+
+            <p className="mt-8 flex items-center gap-2 text-sm text-white/80">
+              <MapPin size={16} className="text-sunshine" />
+              {school.location}
+            </p>
+          </div>
         </div>
-      </div>
-      <img
-        src={img.facade}
-        alt="Acquahfield Montessori school building"
-        className="rounded-card shadow-pop"
-      />
-    </section>
+
+        <div className="rainbow-bar absolute inset-x-0 bottom-0 h-1.5" />
+      </section>
+
+      {/* LEVEL CARDS (overlap the hero) */}
+      <section className="relative z-10 mx-auto -mt-28 max-w-7xl px-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {levels.map(({ name, ages, icon: Icon, bar, tint }) => (
+            <Link
+              key={name}
+              to="/academics"
+              className="group relative overflow-hidden rounded-card bg-white p-6 shadow-pop transition hover:-translate-y-1"
+            >
+              <span className={`absolute inset-x-0 top-0 h-1.5 ${bar}`} />
+              <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${tint}`}>
+                <Icon size={24} />
+              </span>
+              <h3 className="mt-4 text-xl font-semibold">{name}</h3>
+              <p className="mt-1 text-muted">{ages}</p>
+              <span className="mt-4 inline-flex items-center gap-1 font-display text-sm font-medium text-navy-900 transition group-hover:gap-2 group-hover:text-bubblegum">
+                Learn more <ArrowRight size={16} />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
