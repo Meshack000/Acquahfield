@@ -4,6 +4,7 @@ import youtubeIcon from "@/assets/images/social-youtube.png";
 import instagramIcon from "@/assets/images/social-instagram.png";
 import { Link } from "react-router-dom";
 import { navLinks } from "@/data/site";
+import schoolLogo from "@/assets/images/logo.webp";
 
 export default function Footer() {
   return (
@@ -11,8 +12,15 @@ export default function Footer() {
       <div className="h-1 bg-bubblegum" aria-hidden="true" />
       <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.2fr_0.8fr] lg:py-14">
         <div className="max-w-xs">
-          <Link to="/" className="font-display text-2xl font-semibold text-white">
-            {school.short}<span className="text-bubblegum"> Montessori</span>
+          <Link to="/" className="inline-flex items-center gap-3">
+            <img
+              src={schoolLogo}
+              alt={`${school.name} crest`}
+              className="h-16 w-16 shrink-0 rounded-xl bg-white object-contain p-1"
+            />
+            <span className="font-display text-xl font-semibold text-white sm:text-2xl">
+              {school.short}<span className="text-bubblegum"> Montessori</span>
+            </span>
           </Link>
           <p className="mt-4 leading-relaxed text-brand-200">
             A 21st-century, STEM-oriented school nurturing curious, creative learners.

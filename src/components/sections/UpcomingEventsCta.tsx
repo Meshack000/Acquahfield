@@ -133,7 +133,7 @@ export default function UpcomingEventsCta() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button to="/admissions" variant="accent">Start admission</Button>
               <a
-                href={`tel:${school.phone.replace(/\s/g, "")}`}
+                href={`tel:${school.phoneHref}`}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-display font-medium text-navy-900 transition hover:bg-brand-50"
               >
                 <Phone size={18} /> {school.phone}

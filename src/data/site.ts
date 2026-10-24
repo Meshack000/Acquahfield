@@ -3,8 +3,8 @@ export const school = {
   short: "Acquahfield",
   tagline: "Where little minds grow big.",
   location: "Mampong Rd, Kumasi, Ghana",
-  phone: "024 809 5665",
-  phoneHref: "+233248095665",
+  phone: "+233 53 938 8836",
+  phoneHref: "+233539388836",
   openingNote: "Listed opening time: 6:30am Monday. Call to confirm current hours.",
   directionsUrl: "https://www.google.com/maps/search/?api=1&query=Acquahfield%20Montessori%20School%2C%20Mampong%20Rd%2C%20Kumasi",
   socials: {
