@@ -4,7 +4,7 @@ import youtubeIcon from "@/assets/images/social-youtube.png";
 import instagramIcon from "@/assets/images/social-instagram.png";
 import { Link } from "react-router-dom";
 import { navLinks } from "@/data/site";
-import schoolLogo from "@/assets/images/logo.webp";
+import schoolLogo from "@/assets/images/logo-transparent.webp";
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
             <img
               src={schoolLogo}
               alt={`${school.name} crest`}
-              className="h-16 w-16 shrink-0 rounded-xl bg-white object-contain p-1"
+              className="h-16 w-16 shrink-0 object-contain"
             />
             <span className="font-display text-xl font-semibold text-white sm:text-2xl">
               {school.short}<span className="text-bubblegum"> Montessori</span>
