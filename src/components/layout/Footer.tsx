@@ -1,5 +1,7 @@
 import { school } from "@/data/site";
 import { MapPin, Phone } from "lucide-react";
+import youtubeIcon from "@/assets/images/social-youtube.png";
+import instagramIcon from "@/assets/images/social-instagram.png";
 
 export default function Footer() {
   return (
@@ -33,18 +35,18 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Acquahfield Montessori on YouTube"
-              className="text-brand-200 transition hover:text-white"
+              className="inline-flex rounded transition-opacity hover:opacity-75"
             >
-              YouTube
+              <img src={youtubeIcon} alt="" aria-hidden="true" className="h-8 w-8" />
             </a>
             <a
               href={school.socials.instagram}
               target="_blank"
               rel="noreferrer"
               aria-label="Acquahfield Montessori on Instagram"
-              className="text-brand-200 transition hover:text-white"
+              className="inline-flex rounded transition-opacity hover:opacity-75"
             >
-              Instagram
+              <img src={instagramIcon} alt="" aria-hidden="true" className="h-8 w-8" />
             </a>
           </div>
         </div>
