@@ -21,3 +21,10 @@ export const navLinks = [
   { label: "Gallery", to: "/gallery" },
   { label: "Contact", to: "/contact" },
 ] as const;
+
+export const academicLinks = [
+  { label: "Learning approach", to: "/academics#learning-approach" },
+  { label: "Learning areas", to: "/academics#learning-areas" },
+  { label: "STEM and coding", to: "/academics#stem-coding" },
+  { label: "Graduation and recognition", to: "/academics#milestones" },
+] as const;
