@@ -4,7 +4,7 @@ import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
 import WhyUs from "@/components/sections/WhyUs";
-import GalleryCta from "@/components/sections/GalleryCta";
+import UpcomingEventsCta from "@/components/sections/UpcomingEventsCta";
 
 const levels = [
   { name: "Creche", ages: "Babies & toddlers", icon: Baby, bar: "bg-bubblegum", tint: "bg-bubblegum/10 text-bubblegum" },
@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       <WhyUs />
-      <GalleryCta />
+      <UpcomingEventsCta />
     </>
   );
 }
