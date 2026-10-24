@@ -6,6 +6,8 @@ import mockElection from "@/assets/images/g.webp";
 import electionOfficials from "@/assets/images/h.webp";
 import youngDoctors from "@/assets/images/i.webp";
 import youngVoter from "@/assets/images/j.webp";
+import electionBoy from "@/assets/images/k.webp";
+import smartTribe from "@/assets/images/smartribe.webp";
 
 export const img = {
   facade,
@@ -16,4 +18,6 @@ export const img = {
   electionOfficials,
   youngDoctors,
   youngVoter,
+  electionBoy,
+  smartTribe,
 };

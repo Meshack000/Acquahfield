@@ -6,21 +6,24 @@ import Button from "@/components/ui/buttons";
 const events = [
   {
     title: "Prefect Elections",
-    description: "Students vote for their prefects and take part in choosing their school leaders.",
-    image: img.electionOfficials,
+    description: "Choose student leaders through a school vote.",
+    image: img.electionBoy,
     imageAlt: "A boy casting his vote during a school prefect election",
+    imagePosition: "object-center",
   },
   {
     title: "Career Fair",
-    description: "Discover different careers, meet new ideas, and explore future possibilities.",
+    description: "Meet inspiring careers and explore future paths.",
     image: img.youngDoctors,
-    imageAlt: "Students exploring a career through role-play",
+    imageAlt: "Children dressed as a doctor and nurse for a career activity",
+    imagePosition: "object-center",
   },
   {
-    title: "Coding Competition",
-    description: "Put creativity and problem-solving into action with coding challenges.",
-    image: img.classroomCollab,
-    imageAlt: "Students collaborating around a laptop",
+    title: "SmartTribe Coding Competition",
+    description: "Solve challenges and create with code.",
+    image: img.smartTribe,
+    imageAlt: "Acquahfield students learning to code with SmartTribe",
+    imagePosition: "object-[65%_center]",
   },
 ];
 
@@ -40,17 +43,27 @@ export default function UpcomingEventsCta() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {events.map(({ title, description, image, imageAlt }) => (
-              <article key={title}>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {events.map(({ title, description, image, imageAlt, imagePosition }) => (
+              <article
+                key={title}
+                className="group relative isolate aspect-square overflow-hidden rounded-3xl bg-navy-900 text-white"
+              >
                 <img
                   src={image}
                   alt={imageAlt}
                   loading="lazy"
-                  className="aspect-[4/3] w-full rounded-lg object-cover"
+                  className={`absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${imagePosition}`}
                 />
-                <h3 className="mt-4 text-xl font-semibold">{title}</h3>
-                <p className="mt-2 leading-relaxed text-muted">{description}</p>
+                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent" />
+                <div className="flex h-full flex-col justify-end p-4 sm:p-5">
+                  <h3 className="text-xl font-semibold leading-tight text-white sm:text-2xl">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-snug text-white/85">
+                    {description}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
