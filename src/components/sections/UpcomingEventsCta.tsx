@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, Code2, Phone, Vote } from "lucide-react";
+import { Phone } from "lucide-react";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
@@ -7,26 +7,20 @@ const events = [
   {
     title: "Prefect Elections",
     description: "Students vote for their prefects and take part in choosing their school leaders.",
-    icon: Vote,
-    image: img.mockElection,
-    imageAlt: "Students taking part in a mock election",
-    accent: "text-bubblegum bg-bubblegum/10",
+    image: img.electionOfficials,
+    imageAlt: "A boy casting his vote during a school prefect election",
   },
   {
     title: "Career Fair",
     description: "Discover different careers, meet new ideas, and explore future possibilities.",
-    icon: BriefcaseBusiness,
     image: img.youngDoctors,
     imageAlt: "Students exploring a career through role-play",
-    accent: "text-tangerine bg-tangerine/15",
   },
   {
     title: "Coding Competition",
     description: "Put creativity and problem-solving into action with coding challenges.",
-    icon: Code2,
     image: img.classroomCollab,
     imageAlt: "Students collaborating around a laptop",
-    accent: "text-brand-600 bg-brand-50",
   },
 ];
 
@@ -47,21 +41,16 @@ export default function UpcomingEventsCta() {
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {events.map(({ title, description, icon: Icon, image, imageAlt, accent }) => (
-              <article key={title} className="overflow-hidden rounded-2xl border border-brand-200/70">
+            {events.map(({ title, description, image, imageAlt }) => (
+              <article key={title}>
                 <img
                   src={image}
                   alt={imageAlt}
                   loading="lazy"
-                  className="aspect-[16/9] w-full object-cover"
+                  className="aspect-[4/3] w-full rounded-lg object-cover"
                 />
-                <div className="p-5 sm:p-6">
-                <span className={`inline-flex h-11 w-11 items-center justify-center rounded-xl ${accent}`}>
-                  <Icon size={22} />
-                </span>
                 <h3 className="mt-4 text-xl font-semibold">{title}</h3>
                 <p className="mt-2 leading-relaxed text-muted">{description}</p>
-                </div>
               </article>
             ))}
           </div>
