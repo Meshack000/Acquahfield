@@ -10,9 +10,23 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-brand-200 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
-        <Link to="/" className="font-display text-xl font-semibold text-navy-900">
-          {school.short}
-          <span className="text-bubblegum"> Montessori</span>
+        <Link
+          to="/"
+          aria-label={`${school.name} home`}
+          className="flex items-center gap-2.5"
+        >
+          <img src="/acquahfield-mark.svg" alt="" className="h-11 w-11 shrink-0" />
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-lg font-semibold text-navy-900 sm:text-xl">
+              {school.short}
+            </span>
+            <span className="mt-1 font-display text-sm font-semibold text-bubblegum sm:text-base">
+              Montessori
+            </span>
+            <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.16em] text-muted">
+              School · Kumasi
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

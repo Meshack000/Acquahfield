@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
@@ -10,6 +11,8 @@ const events = [
     image: img.electionBoy,
     imageAlt: "A boy casting his vote during a school prefect election",
     imagePosition: "object-center",
+    date: "2027-02-12",
+    dateLabel: "12 Feb 2027",
   },
   {
     title: "Career Fair",
@@ -17,6 +20,8 @@ const events = [
     image: img.youngDoctors,
     imageAlt: "Children dressed as a doctor and nurse for a career activity",
     imagePosition: "object-center",
+    date: "2027-02-26",
+    dateLabel: "26 Feb 2027",
   },
   {
     title: "SmartTribe Coding Competition",
@@ -24,10 +29,38 @@ const events = [
     image: img.smartTribe,
     imageAlt: "Acquahfield students learning to code with SmartTribe",
     imagePosition: "object-[65%_center]",
+    date: "2027-03-12",
+    dateLabel: "12 Mar 2027",
   },
 ];
 
+const millisecondsPerDay = 24 * 60 * 60 * 1000;
+
+function daysUntil(date: string) {
+  const [year, month, day] = date.split("-").map(Number);
+  const eventDay = Date.UTC(year, month - 1, day);
+  const today = new Date();
+  const todayDay = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+
+  return Math.ceil((eventDay - todayDay) / millisecondsPerDay);
+}
+
 export default function UpcomingEventsCta() {
+  const [remainingDays, setRemainingDays] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const updateCountdowns = () => {
+      setRemainingDays(
+        Object.fromEntries(events.map((event) => [event.title, daysUntil(event.date)])),
+      );
+    };
+
+    updateCountdowns();
+    const interval = window.setInterval(updateCountdowns, 60_000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* UPCOMING EVENTS */}
@@ -44,7 +77,7 @@ export default function UpcomingEventsCta() {
           </div>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map(({ title, description, image, imageAlt, imagePosition }) => (
+            {events.map(({ title, description, image, imageAlt, imagePosition, date, dateLabel }) => (
               <article
                 key={title}
                 className="group relative isolate aspect-square overflow-hidden rounded-3xl bg-navy-900 text-white"
@@ -57,6 +90,19 @@ export default function UpcomingEventsCta() {
                 />
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent" />
                 <div className="flex h-full flex-col justify-end p-4 sm:p-5">
+                  <p className="mb-1 text-xs font-semibold text-white/80">
+                    <time dateTime={date}>{dateLabel}</time>
+                    {remainingDays[title] !== undefined && (
+                      <>
+                        {" · "}
+                        {remainingDays[title] < 0
+                          ? "Date passed"
+                          : remainingDays[title] === 0
+                            ? "Today"
+                            : `${remainingDays[title]} days to go`}
+                      </>
+                    )}
+                  </p>
                   <h3 className="text-xl font-semibold leading-tight text-white sm:text-2xl">
                     {title}
                   </h3>
