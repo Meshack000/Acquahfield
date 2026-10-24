@@ -16,7 +16,7 @@ export default function Footer() {
             <img
               src={schoolLogo}
               alt={`${school.name} crest`}
-              className="h-16 w-16 shrink-0 object-contain"
+              className="h-10 w-10 shrink-0 object-contain"
             />
             <span className="font-display text-xl font-semibold text-white sm:text-2xl">
               {school.short}<span className="text-bubblegum"> Montessori</span>

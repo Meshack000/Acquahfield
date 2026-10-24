@@ -16,7 +16,7 @@ export default function Navbar() {
           aria-label={`${school.name} home`}
           className="inline-flex items-center gap-2 font-display text-xl font-semibold text-navy-900"
         >
-          <img src={schoolLogo} alt="" aria-hidden="true" className="h-11 w-11 shrink-0 object-contain" />
+          <img src={schoolLogo} alt="" aria-hidden="true" className="h-8 w-8 shrink-0 object-contain" />
           <span>
             {school.short}
             <span className="text-bubblegum"> Montessori</span>
