@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { navLinks, school } from "@/data/site";
+import { navLinks, school, type NavItem } from "@/data/site";
 import Button from "@/components/ui/buttons";
 
 export default function Navbar() {
@@ -15,7 +15,12 @@ export default function Navbar() {
     setExpanded(null);
   }, [pathname]);
 
-  const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname.startsWith(to));
+  const isActive = (l: NavItem) =>
+    l.to === "/"
+      ? pathname === "/"
+      : [l.to, ...(l.children?.map((c) => c.to.split("#")[0]) ?? [])].some(
+          (path) => pathname === path || pathname.startsWith(`${path}/`),
+        );
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 shadow-soft backdrop-blur">
@@ -34,7 +39,7 @@ export default function Navbar() {
                 <NavLink
                   to={l.to}
                   className={`flex items-center gap-1 rounded-full px-4 py-2 font-semibold transition hover:text-bubblegum ${
-                    isActive(l.to) ? "text-bubblegum" : "text-navy-900"
+                    isActive(l) ? "text-bubblegum" : "text-navy-900"
                   }`}
                 >
                   {l.label}
@@ -64,7 +69,7 @@ export default function Navbar() {
                 key={l.label}
                 to={l.to}
                 className={`rounded-full px-4 py-2 font-semibold transition hover:text-bubblegum ${
-                  isActive(l.to) ? "text-bubblegum" : "text-navy-900"
+                  isActive(l) ? "text-bubblegum" : "text-navy-900"
                 }`}
               >
                 {l.label}

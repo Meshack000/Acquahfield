@@ -28,6 +28,10 @@ export const navLinks: NavItem[] = [
       { label: "Our story", to: "/about" },
       { label: "Mission & vision", to: "/about#mission" },
       { label: "Our values", to: "/about#values" },
+      { label: "Awards", to: "/achievements#awards" },
+      { label: "Certification", to: "/achievements#certification" },
+      { label: "Graduation", to: "/achievements#graduation" },
+      { label: "Gallery", to: "/gallery" },
     ],
   },
   {
@@ -45,9 +49,16 @@ export const navLinks: NavItem[] = [
     to: "/admissions",
     children: [
       { label: "How to apply", to: "/admissions" },
-      { label: "Enquiry form", to: "/contact" },
+      { label: "Enquiry form", to: "/admissions#enquire" },
     ],
   },
-  { label: "Gallery", to: "/gallery" },
+  {
+    label: "News & Events",
+    to: "/news-events",
+    children: [
+      { label: "Latest news", to: "/news-events#news" },
+      { label: "Upcoming events", to: "/news-events#events" },
+    ],
+  },
   { label: "Contact", to: "/contact" },
 ];
