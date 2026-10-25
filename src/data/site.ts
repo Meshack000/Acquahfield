@@ -13,35 +13,6 @@ export const school = {
   },
 } as const;
 
-export const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Academics", to: "/academics" },
-  { label: "Admissions", to: "/admissions" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Contact", to: "/contact" },
-] as const;
-
-export const academicLinks = [
-  { label: "Learning approach", to: "/academics#learning-approach" },
-  { label: "Learning areas", to: "/academics#learning-areas" },
-  { label: "STEM and coding", to: "/academics#stem-coding" },
-  { label: "Graduation and recognition", to: "/academics#milestones" },
-] as const;
-
-
-
-export const school = {
-  name: "Acquahfield Montessori School",
-  short: "Acquahfield",
-  tagline: "Where little minds grow big.",
-  location: "Asenua, Kumasi, Ghana",
-  // TODO: replace with the school's real details
-  phone: "+233 00 000 0000",
-  email: "info@acquahfield.edu.gh",
-  hours: "Mon – Fri, 7:00am – 4:00pm",
-} as const;
-
 export type NavItem = {
   label: string;
   to: string;
@@ -74,7 +45,7 @@ export const navLinks: NavItem[] = [
     to: "/admissions",
     children: [
       { label: "How to apply", to: "/admissions" },
-      { label: "Enquiry form", to: "/admissions#enquire" },
+      { label: "Enquiry form", to: "/contact" },
     ],
   },
   { label: "Gallery", to: "/gallery" },

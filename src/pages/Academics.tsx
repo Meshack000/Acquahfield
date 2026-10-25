@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import Button from "@/components/ui/buttons";
 import { img } from "@/lib/images";
 
@@ -49,7 +49,11 @@ export default function Academics() {
 
       <section className="mx-auto max-w-7xl space-y-20 px-5 py-24">
         {levels.map((l, i) => (
-          <article key={l.name} className="grid items-center gap-10 lg:grid-cols-2">
+          <article
+            key={l.name}
+            id={l.name.toLowerCase().replace(/ /g, "-")}
+            className="grid items-center gap-10 lg:grid-cols-2"
+          >
             <img
               src={l.src}
               alt={l.name}

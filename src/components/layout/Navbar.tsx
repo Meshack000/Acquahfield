@@ -71,7 +71,7 @@ export default function Navbar() {
               </NavLink>
             ),
           )}
-          <Button to="/admissions#enquire" variant="accent" className="ml-3">
+          <Button to="/contact" variant="accent" className="ml-3">
             Enrol now
           </Button>
         </nav>
@@ -125,7 +125,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Button to="/admissions#enquire" variant="accent" className="mt-4 w-full justify-center">
+          <Button to="/contact" variant="accent" className="mt-4 w-full justify-center">
             Enrol now
           </Button>
         </nav>

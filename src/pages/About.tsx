@@ -1,5 +1,5 @@
 import { Heart, Lightbulb, ShieldCheck, Users } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import Button from "@/components/ui/buttons";
 import { img } from "@/lib/images";
 
@@ -42,7 +42,7 @@ export default function About() {
         />
       </section>
 
-      <section className="bg-brand-50 px-5 py-24">
+      <section id="mission" className="bg-brand-50 px-5 py-24">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
           <div className="rounded-card bg-navy-900 p-8 text-white">
             <h3 className="text-2xl font-semibold text-sunshine">Our mission</h3>
@@ -59,7 +59,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-24">
+      <section id="values" className="mx-auto max-w-7xl px-5 py-24">
         <h2 className="text-center text-4xl font-semibold">What we stand for</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map(({ icon: Icon, title, text, tint }) => (
