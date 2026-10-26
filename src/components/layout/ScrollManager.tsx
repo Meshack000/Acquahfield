@@ -1,8 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollManager() {
   const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    return () => {
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [pathname, hash]);
 
   useEffect(() => {
     if (hash) {
@@ -12,7 +26,6 @@ export default function ScrollManager() {
       }, 60);
       return () => clearTimeout(t);
     }
-    window.scrollTo({ top: 0 });
   }, [pathname, hash]);
 
   return null;
