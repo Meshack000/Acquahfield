@@ -1,45 +1,89 @@
+import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import PageHeader from "@/components/ui/PageHeader";
 import { img } from "@/lib/images";
 
+// Add more photos here as the school sends them
 const photos = [
-  { src: img.facade, alt: "Acquahfield Montessori School building", caption: "Our school" },
-  { src: img.classroomCollab, alt: "Students learning together in class", caption: "Learning together" },
-  { src: img.classroomStudy, alt: "Student focused on classroom work", caption: "Curious minds at work" },
-  { src: img.studentWriting, alt: "A young student writing in class", caption: "Building strong foundations" },
-  { src: img.mockElection, alt: "Students taking part in a mock election", caption: "Student leadership" },
-  { src: img.electionOfficials, alt: "Students working together at a school activity", caption: "Working as a team" },
-  { src: img.youngDoctors, alt: "Students taking part in a role-play activity", caption: "Learning through role-play" },
-  { src: img.youngVoter, alt: "A student participating in a mock voting activity", caption: "Finding their voice" },
+  { src: img.facade, alt: "Our colourful school building" },
+  { src: img.classroomCollab, alt: "Pupils learning together" },
+  { src: img.mockElection, alt: "Mock election day" },
+  { src: img.classroomStudy, alt: "Focused classroom study" },
+  { src: img.electionOfficials, alt: "Pupils at a schoolyard table" },
+  { src: img.youngDoctors, alt: "Pupils in a role-play event" },
+  { src: img.studentWriting, alt: "A pupil writing in class" },
+  { src: img.youngVoter, alt: "A pupil at a mock ballot station" },
 ];
 
 export default function Gallery() {
-  return (
-    <section className="bg-cream px-5 py-14 sm:py-20">
-      <div className="mx-auto max-w-7xl">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-600">
-          Life at Acquahfield
-        </p>
-        <h1 className="mt-3 text-4xl font-semibold sm:text-5xl">School gallery</h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-          A glimpse of our school, classroom learning, and activities that help children explore,
-          express themselves, and learn together.
-        </p>
+  const [current, setCurrent] = useState<number | null>(null);
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
-          {photos.map(({ src, alt, caption }) => (
-            <figure key={alt} className="overflow-hidden rounded-2xl bg-white">
-              <img
-                src={src}
-                alt={alt}
-                loading="lazy"
-                className="aspect-[4/3] w-full object-cover"
-              />
-              <figcaption className="px-3 py-3 font-semibold text-navy-900 sm:px-4">
-                {caption}
-              </figcaption>
-            </figure>
+  const move = useCallback((d: number) => {
+    setCurrent((c) => (c === null ? c : (c + d + photos.length) % photos.length));
+  }, []);
+
+  useEffect(() => {
+    if (current === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setCurrent(null);
+      if (e.key === "ArrowRight") move(1);
+      if (e.key === "ArrowLeft") move(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [current, move]);
+
+  return (
+    <>
+      <PageHeader eyebrow="Gallery" title="Life at Acquahfield" text="A peek into our classrooms, events and campus." />
+
+      <section className="mx-auto max-w-7xl px-5 py-20">
+        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+          {photos.map((p, i) => (
+            <button
+              key={p.alt}
+              onClick={() => setCurrent(i)}
+              className="mb-4 block w-full overflow-hidden rounded-card shadow-soft"
+              aria-label={`Open photo: ${p.alt}`}
+            >
+              <img src={p.src} alt={p.alt} loading="lazy" className="w-full transition duration-500 hover:scale-105" />
+            </button>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {current !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-950/95 p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setCurrent(null)}
+        >
+          <button className="absolute right-5 top-5 text-white" aria-label="Close" onClick={() => setCurrent(null)}>
+            <X size={32} />
+          </button>
+          <button
+            className="absolute left-3 text-white md:left-8"
+            aria-label="Previous"
+            onClick={(e) => { e.stopPropagation(); move(-1); }}
+          >
+            <ChevronLeft size={40} />
+          </button>
+          <img
+            src={photos[current].src}
+            alt={photos[current].alt}
+            className="max-h-[88svh] max-w-full rounded-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute right-3 text-white md:right-8"
+            aria-label="Next"
+            onClick={(e) => { e.stopPropagation(); move(1); }}
+          >
+            <ChevronRight size={40} />
+          </button>
+        </div>
+      )}
+    </>
   );
 }

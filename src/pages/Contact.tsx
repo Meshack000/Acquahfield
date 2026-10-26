@@ -1,56 +1,50 @@
-import { MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import PageHeader from "@/components/ui/PageHeader";
+import EnquiryForm from "@/components/ui/EnquiryForm";
 import { school } from "@/data/site";
+
+const info = [
+  { icon: MapPin, label: "Find us", value: school.location, tint: "bg-bubblegum/10 text-bubblegum" },
+  { icon: Phone, label: "Call us", value: school.phone, tint: "bg-tangerine/15 text-tangerine" },
+  { icon: Mail, label: "Email us", value: school.email, tint: "bg-mint/15 text-mint" },
+  { icon: Clock, label: "Open", value: school.hours, tint: "bg-brand-500/10 text-brand-500" },
+];
 
 export default function Contact() {
   return (
-    <section className="bg-cream px-5 py-14 sm:py-20">
-      <div className="mx-auto max-w-4xl">
-        <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-600">
-          Get in touch
-        </p>
-        <h1 className="mt-3 text-4xl font-semibold sm:text-5xl">Contact our school</h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
-          Call us to ask about the school, admissions, or current opening hours. We’re on Mampong
-          Road in Kumasi.
-        </p>
+    <>
+      <PageHeader eyebrow="Contact" title="Say hello" text="We’d love to hear from you." />
 
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <a
-            href={`tel:${school.phoneHref}`}
-            className="rounded-card border border-brand-200/70 bg-white p-6 shadow-soft transition hover:-translate-y-1"
-          >
-            <Phone size={24} className="text-brand-600" />
-            <h2 className="mt-4 text-xl font-semibold">Call the school</h2>
-            <p className="mt-1 text-muted">{school.phone}</p>
-          </a>
-          <a
-            href={school.directionsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-card border border-brand-200/70 bg-white p-6 shadow-soft transition hover:-translate-y-1"
-          >
-            <MapPin size={24} className="text-brand-600" />
-            <h2 className="mt-4 text-xl font-semibold">Find us</h2>
-            <p className="mt-1 text-muted">{school.location}</p>
-            <span className="mt-3 inline-block font-semibold text-brand-600">Get directions</span>
-          </a>
+      <section className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-2">
+        <div>
+          <ul className="space-y-5">
+            {info.map(({ icon: Icon, label, value, tint }) => (
+              <li key={label} className="flex items-center gap-4">
+                <span className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${tint}`}>
+                  <Icon size={22} />
+                </span>
+                <div>
+                  <p className="font-display text-sm text-muted">{label}</p>
+                  <p className="font-semibold text-navy-900">{value}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <iframe
+            title="Map of Acquahfield Montessori School, Asenua, Kumasi"
+            src="https://www.google.com/maps?q=Asenua,Kumasi,Ghana&output=embed"
+            loading="lazy"
+            className="mt-8 h-72 w-full rounded-card border-0 shadow-soft"
+          />
         </div>
 
-        <p className="mt-6 rounded-2xl bg-brand-50 p-5 text-muted">
-          <span className="font-semibold text-navy-900">Opening hours:</span> {school.openingNote}
-        </p>
-        <p className="mt-5 text-sm text-muted">
-          Follow us on{" "}
-          <a className="font-semibold text-brand-600 underline" href={school.socials.youtube} target="_blank" rel="noreferrer">
-            YouTube
-          </a>{" "}
-          and{" "}
-          <a className="font-semibold text-brand-600 underline" href={school.socials.instagram} target="_blank" rel="noreferrer">
-            Instagram
-          </a>
-          .
-        </p>
-      </div>
-    </section>
+        <div className="rounded-[2rem] bg-white p-8 shadow-pop">
+          <h2 className="text-3xl font-semibold">Send a message</h2>
+          <div className="mt-6">
+            <EnquiryForm formName="contact" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
