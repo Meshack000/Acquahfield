@@ -58,7 +58,7 @@ export const navLinks: NavItem[] = [
     to: "/programmes",
     children: [
       { label: "GES curriculum", to: "/programmes#ges" },
-      { label: "Abacus & Vedic Maths", to: "/programmes#abacus" },
+      { label: "Abacus", to: "/programmes#abacus" },
       { label: "Coding", to: "/programmes#coding" },
       { label: "Robotics", to: "/programmes#robotics" },
     ],
