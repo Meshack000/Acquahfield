@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "@/components/layout/Layout";
+import Layout from "@/components/layout/layout";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
-import Achievements from "@/pages/Achievements";
+import Achievements from "@/pages/Achievments";
 import Academics from "@/pages/Academics";
 import NewsEvents from "@/pages/NewsEvents";
-import Placeholder from "@/pages/Placeholder";
+import Admissions from "@/pages/Admissions";
+import Contact from "@/pages/Contact";
+import Gallery from "@/pages/Gallery";
 
 export default function App() {
   return (
@@ -15,10 +17,10 @@ export default function App() {
         <Route path="about" element={<About />} />
         <Route path="achievements" element={<Achievements />} />
         <Route path="academics" element={<Academics />} />
-        <Route path="admissions" element={<Placeholder title="Admissions" />} />
+        <Route path="admissions" element={<Admissions />} />
         <Route path="news-events" element={<NewsEvents />} />
-        <Route path="gallery" element={<Placeholder title="Gallery" />} />
-        <Route path="contact" element={<Placeholder title="Contact" />} />
+        <Route path="gallery" element={<Gallery />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
   );

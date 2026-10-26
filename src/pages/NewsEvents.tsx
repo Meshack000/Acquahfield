@@ -1,5 +1,5 @@
 import { CalendarDays, MapPin, Clock } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import { events, news } from "@/data/news";
 
 export default function NewsEvents() {

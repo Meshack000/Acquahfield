@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import { img } from "@/lib/images";
 
 // Add more photos here as the school sends them
@@ -43,7 +43,7 @@ export default function Gallery() {
             <button
               key={p.alt}
               onClick={() => setCurrent(i)}
-              className="mb-4 block w-full overflow-hidden rounded-card shadow-soft"
+              className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-card shadow-soft"
               aria-label={`Open photo: ${p.alt}`}
             >
               <img src={p.src} alt={p.alt} loading="lazy" className="w-full transition duration-500 hover:scale-105" />
@@ -57,6 +57,7 @@ export default function Gallery() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-950/95 p-4"
           role="dialog"
           aria-modal="true"
+          aria-label="Photo viewer"
           onClick={() => setCurrent(null)}
         >
           <button className="absolute right-5 top-5 text-white" aria-label="Close" onClick={() => setCurrent(null)}>

@@ -1,5 +1,5 @@
 import { ClipboardList, FileText, MessagesSquare, School } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import EnquiryForm from "@/components/ui/EnquiryForm";
 
 const steps = [

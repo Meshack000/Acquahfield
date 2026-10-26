@@ -18,15 +18,22 @@
   </head>
   <body>
 
-        <form name="enquiry" data-netlify="true" hidden>
-      <input name="name" /><input name="phone" /><input name="email" />
-      <input name="level" /><textarea name="message"></textarea>
-    </form>
-    <form name="contact" data-netlify="true" hidden>
-      <input name="name" /><input name="phone" /><input name="email" />
+    <form name="enquiry" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="enquiry" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+      <input name="level" />
       <textarea name="message"></textarea>
     </form>
-    
+    <form name="contact" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="name" />
+      <input name="phone" />
+      <input name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

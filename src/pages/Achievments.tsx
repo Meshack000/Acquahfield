@@ -1,6 +1,6 @@
 import { Award, BadgeCheck, GraduationCap, type LucideIcon } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
-import { awards, certifications, graduations, type Item } from "@/data/achievements";
+import PageHeader from "@/components/ui/pageheader";
+import { awards, certifications, graduations, type Item } from "@/data/achievments";
 
 type SectionProps = {
   id: string;

@@ -61,7 +61,7 @@ export default function Footer() {
             <Phone size={18} className="text-bubblegum" />
             {school.phone}
           </a>
-          <p className="max-w-xs text-sm leading-relaxed">{school.openingNote}</p>
+          <p className="max-w-xs text-sm leading-relaxed">{school.hours}</p>
           </div>
         </div>
 

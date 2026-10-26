@@ -1,5 +1,5 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import EnquiryForm from "@/components/ui/EnquiryForm";
 import { school } from "@/data/site";
 
@@ -13,7 +13,7 @@ const info = [
 export default function Contact() {
   return (
     <>
-      <PageHeader eyebrow="Contact" title="Say hello" text="We’d love to hear from you." />
+      <PageHeader eyebrow="Contact" title="Say hello" text="We'd love to hear from you." />
 
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-24 lg:grid-cols-2">
         <div>
