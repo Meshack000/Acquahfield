@@ -8,7 +8,7 @@ import NewsEvents from "@/pages/NewsEvents";
 import Admissions from "@/pages/Admissions";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
-import Programmes from "@/pages/Programmes";
+import Programmes from "@/Programmes";
 
 export default function App() {
   return (

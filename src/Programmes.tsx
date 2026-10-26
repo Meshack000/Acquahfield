@@ -1,5 +1,5 @@
 import { Bot, Calculator, Check, Code, ExternalLink, Landmark } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
+import PageHeader from "@/components/ui/pageheader";
 import Button from "@/components/ui/buttons";
 
 // TODO: confirm the subject list with the school
