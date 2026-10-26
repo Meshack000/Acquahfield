@@ -43,6 +43,11 @@ export const navLinks: NavItem[] = [
       { label: "Kindergarten", to: "/academics#kindergarten" },
       { label: "Lower Primary (Grade 1–3)", to: "/academics#lower-primary" },
       { label: "Upper Primary (Grade 4–7)", to: "/academics#upper-primary" },
+      { label: "Programmes", to: "/programmes" },
+      { label: "GES curriculum", to: "/programmes#ges" },
+      { label: "Abacus", to: "/programmes#abacus" },
+      { label: "Coding", to: "/programmes#coding" },
+      { label: "Robotics", to: "/programmes#robotics" },
     ],
   },
   {
@@ -51,16 +56,6 @@ export const navLinks: NavItem[] = [
     children: [
       { label: "How to apply", to: "/admissions" },
       { label: "Enquiry form", to: "/admissions#enquire" },
-    ],
-  },
-    {
-    label: "Programmes",
-    to: "/programmes",
-    children: [
-      { label: "GES curriculum", to: "/programmes#ges" },
-      { label: "Abacus", to: "/programmes#abacus" },
-      { label: "Coding", to: "/programmes#coding" },
-      { label: "Robotics", to: "/programmes#robotics" },
     ],
   },
   {
