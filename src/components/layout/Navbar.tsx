@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navLinks, school, type NavItem } from "@/data/site";
 import Button from "@/components/ui/buttons";
+import schoolLogo from "@/assets/images/logo-transparent.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -26,9 +27,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/95 shadow-soft backdrop-blur">
       <div className="rainbow-bar h-1.5" />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
-        <Link to="/" className="font-display text-xl font-semibold text-navy-900">
-          {school.short}
-          <span className="text-bubblegum"> Montessori</span>
+        <Link to="/" className="inline-flex items-center gap-2 font-display text-xl font-semibold text-navy-900">
+          <img
+            src={schoolLogo}
+            alt={`${school.name} crest`}
+            className="h-10 w-10 shrink-0 object-contain"
+          />
+          <span>
+            {school.short}
+            <span className="text-bubblegum"> Montessori</span>
+          </span>
         </Link>
 
         {/* DESKTOP */}
