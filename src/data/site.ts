@@ -53,6 +53,16 @@ export const navLinks: NavItem[] = [
       { label: "Enquiry form", to: "/admissions#enquire" },
     ],
   },
+    {
+    label: "Programmes",
+    to: "/programmes",
+    children: [
+      { label: "GES curriculum", to: "/programmes#ges" },
+      { label: "Abacus & Vedic Maths", to: "/programmes#abacus" },
+      { label: "Coding", to: "/programmes#coding" },
+      { label: "Robotics", to: "/programmes#robotics" },
+    ],
+  },
   {
     label: "News & Events",
     to: "/news-events",

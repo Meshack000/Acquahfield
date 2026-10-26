@@ -8,6 +8,7 @@ import NewsEvents from "@/pages/NewsEvents";
 import Admissions from "@/pages/Admissions";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
+import Programmes from "@/pages/Programmes";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="news-events" element={<NewsEvents />} />
         <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="programmes" element={<Programmes />} />
       </Route>
     </Routes>
   );
