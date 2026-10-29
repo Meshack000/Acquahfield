@@ -8,12 +8,16 @@ import youngDoctors from "@/assets/images/i.webp";
 import youngVoter from "@/assets/images/j.webp";
 import electionBoy from "@/assets/images/k.webp";
 import smartTribe from "@/assets/images/smartribe.webp";
+import kindergarten from "@/assets/images/KG.webp";
+import lowerGrade from "@/assets/images/LW.webp";
 
 export const img = {
   facade,
   classroomCollab,
   classroomStudy,
   studentWriting,
+  kindergarten,
+  lowerGrade,
   mockElection,
   electionOfficials,
   youngDoctors,

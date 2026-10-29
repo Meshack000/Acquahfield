@@ -17,7 +17,7 @@ const levels = [
     ages: "KG 1 – KG 2",
     text: "Learning through play and hands-on materials, building early reading, counting and social skills.",
     items: ["Phonics and early reading", "Numbers and shapes", "Creative arts and play"],
-    src: img.studentWriting,
+    src: img.kindergarten,
     bar: "bg-tangerine",
   },
   {
@@ -25,7 +25,7 @@ const levels = [
     ages: "Grade 1 – 3",
     text: "Solid foundations in literacy and numeracy, with curiosity and good habits at the centre.",
     items: ["Literacy and numeracy", "Science and discovery", "Creative arts and ICT"],
-    src: img.classroomStudy,
+    src: img.lowerGrade,
     bar: "bg-mint",
   },
   {
