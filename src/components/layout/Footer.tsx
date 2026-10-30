@@ -1,5 +1,5 @@
 import { school } from "@/data/site";
-import { MapPin, Phone } from "lucide-react";
+import { ExternalLink, MapPin, Phone } from "lucide-react";
 import youtubeIcon from "@/assets/images/social-youtube.png";
 import instagramIcon from "@/assets/images/social-instagram.png";
 import { Link } from "react-router-dom";
@@ -25,6 +25,14 @@ export default function Footer() {
           <p className="mt-4 leading-relaxed text-brand-200">
             A 21st-century, STEM-oriented school nurturing curious, creative learners.
           </p>
+          <a
+            href="https://thesmartribe.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 font-semibold text-white transition-colors hover:text-sunshine"
+          >
+            STEM programmes with SmartTribe <ExternalLink size={16} />
+          </a>
         </div>
 
         <nav aria-label="Footer navigation">
