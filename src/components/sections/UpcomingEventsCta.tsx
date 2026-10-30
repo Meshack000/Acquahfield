@@ -1,10 +1,20 @@
 import { useEffect, useState } from "react";
-import { Phone } from "lucide-react";
+import { PawPrint, Phone } from "lucide-react";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
 
-const events = [
+type UpcomingEvent = {
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: string;
+  date: string;
+  dateLabel: string;
+};
+
+const events: UpcomingEvent[] = [
   {
     title: "Prefect Elections",
     description: "Choose student leaders through a school vote.",
@@ -32,12 +42,21 @@ const events = [
     date: "2027-03-12",
     dateLabel: "12 Mar 2027",
   },
+  {
+    title: "Kumasi Zoo Excursion",
+    description: "A school trip to explore wildlife and learn about animals.",
+    date: "2027-04",
+    dateLabel: "April 2027",
+  },
 ];
 
 const millisecondsPerDay = 24 * 60 * 60 * 1000;
 
-function daysUntil(date: string) {
-  const [year, month, day] = date.split("-").map(Number);
+function daysUntil(date: string): number | null {
+  const parts = date.split("-").map(Number);
+  if (parts.length !== 3) return null;
+
+  const [year, month, day] = parts;
   const eventDay = Date.UTC(year, month - 1, day);
   const today = new Date();
   const todayDay = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
@@ -46,7 +65,7 @@ function daysUntil(date: string) {
 }
 
 export default function UpcomingEventsCta() {
-  const [remainingDays, setRemainingDays] = useState<Record<string, number>>({});
+  const [remainingDays, setRemainingDays] = useState<Record<string, number | null>>({});
 
   useEffect(() => {
     const updateCountdowns = () => {
@@ -82,17 +101,24 @@ export default function UpcomingEventsCta() {
                 key={title}
                 className="group relative isolate aspect-square overflow-hidden rounded-3xl bg-navy-900 text-white"
               >
-                <img
-                  src={image}
-                  alt={imageAlt}
-                  loading="lazy"
-                  className={`absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${imagePosition}`}
-                />
+                {image ? (
+                  <img
+                    src={image}
+                    alt={imageAlt ?? ""}
+                    loading="lazy"
+                    className={`absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${imagePosition ?? ""}`}
+                  />
+                ) : (
+                  <PawPrint
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-1/3 -z-20 h-32 w-32 -translate-x-1/2 -translate-y-1/2 text-white/15"
+                  />
+                )}
                 <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent" />
                 <div className="flex h-full flex-col justify-end p-4 sm:p-5">
                   <p className="mb-1 text-xs font-semibold text-white/80">
                     <time dateTime={date}>{dateLabel}</time>
-                    {remainingDays[title] !== undefined && (
+                    {remainingDays[title] !== undefined && remainingDays[title] !== null && (
                       <>
                         {" · "}
                         {remainingDays[title] < 0
