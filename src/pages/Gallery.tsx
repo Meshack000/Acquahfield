@@ -46,7 +46,7 @@ export default function Gallery() {
               className="mb-4 block w-full break-inside-avoid overflow-hidden rounded-card shadow-soft"
               aria-label={`Open photo: ${p.alt}`}
             >
-              <img src={p.src} alt={p.alt} loading="lazy" className="w-full transition duration-500 hover:scale-105" />
+              <img src={p.src} alt={p.alt} loading="lazy" decoding="async" className="w-full transition duration-500 hover:scale-105" />
             </button>
           ))}
         </div>
@@ -73,6 +73,7 @@ export default function Gallery() {
           <img
             src={photos[current].src}
             alt={photos[current].alt}
+            decoding="async"
             className="max-h-[88svh] max-w-full rounded-2xl object-contain"
             onClick={(e) => e.stopPropagation()}
           />

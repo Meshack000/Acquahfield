@@ -31,6 +31,7 @@ export default function Navbar() {
           <img
             src={schoolLogo}
             alt={`${school.name} crest`}
+            decoding="async"
             className="h-10 w-10 shrink-0 object-contain"
           />
           <span>

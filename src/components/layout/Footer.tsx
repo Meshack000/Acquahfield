@@ -16,6 +16,7 @@ export default function Footer() {
             <img
               src={schoolLogo}
               alt={`${school.name} crest`}
+              decoding="async"
               className="h-10 w-10 shrink-0 object-contain"
             />
             <span className="font-display text-xl font-semibold text-white sm:text-2xl">
@@ -84,7 +85,7 @@ export default function Footer() {
               aria-label="Acquahfield Montessori on YouTube"
               className="inline-flex rounded-lg bg-white/10 p-2 transition-colors hover:bg-white/20"
             >
-              <img src={youtubeIcon} alt="" aria-hidden="true" className="h-6 w-6" />
+              <img src={youtubeIcon} alt="" aria-hidden="true" decoding="async" className="h-6 w-6" />
             </a>
             <a
               href={school.socials.instagram}
@@ -93,7 +94,7 @@ export default function Footer() {
               aria-label="Acquahfield Montessori on Instagram"
               className="inline-flex rounded-lg bg-white/10 p-2 transition-colors hover:bg-white/20"
             >
-              <img src={instagramIcon} alt="" aria-hidden="true" className="h-6 w-6" />
+              <img src={instagramIcon} alt="" aria-hidden="true" decoding="async" className="h-6 w-6" />
             </a>
           </div>
         </div>

@@ -33,7 +33,7 @@ function Section({ id, icon: Icon, title, intro, items, tint }: SectionProps) {
           {items.map((it) => (
             <article key={it.title} className="overflow-hidden rounded-card bg-white shadow-soft">
               {it.image && (
-                <img src={it.image} alt={it.title} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                <img src={it.image} alt={it.title} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
               )}
               <div className="p-6">
                 {it.date && <p className="font-display text-sm text-bubblegum">{it.date}</p>}

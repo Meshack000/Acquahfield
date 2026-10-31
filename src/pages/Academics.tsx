@@ -80,6 +80,7 @@ export default function Academics() {
               src={l.src}
               alt={l.name}
               loading="lazy"
+              decoding="async"
               className={`aspect-[4/3] w-full rounded-card object-cover shadow-pop ${i % 2 ? "lg:order-2" : ""}`}
             />
             <div>

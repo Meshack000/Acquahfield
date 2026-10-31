@@ -27,6 +27,7 @@ export default function Home() {
           alt=""
           aria-hidden="true"
           fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_70%] md:object-bottom"
         />
         <div

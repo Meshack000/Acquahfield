@@ -38,6 +38,7 @@ export default function About() {
           src={img.facade}
           alt="Acquahfield Montessori school building"
           loading="lazy"
+          decoding="async"
           className="rounded-card shadow-pop"
         />
       </section>

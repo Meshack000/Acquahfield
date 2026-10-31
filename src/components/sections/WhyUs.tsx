@@ -29,6 +29,7 @@ export default function WhyUs() {
             src={img.studentWriting}
             alt="A student writing during a classroom activity"
             loading="lazy"
+            decoding="async"
             className="aspect-[4/3] w-full rounded-card object-cover"
           />
           <div>

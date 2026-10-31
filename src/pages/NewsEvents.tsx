@@ -22,7 +22,7 @@ export default function NewsEvents() {
             {news.map((n) => (
               <article key={n.title} className="overflow-hidden rounded-card bg-white shadow-soft">
                 {n.image && (
-                  <img src={n.image} alt={n.title} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+                  <img src={n.image} alt={n.title} loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
                 )}
                 <div className="p-6">
                   <p className="font-display text-sm text-bubblegum">{n.date}</p>
