@@ -9,7 +9,6 @@ import schoolLogo from "@/assets/images/logo-transparent.webp";
 export default function Footer() {
   return (
     <footer className="mt-12 bg-navy-950 text-white sm:mt-16">
-      <div className="h-1 bg-bubblegum" aria-hidden="true" />
       <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1.2fr_0.8fr] lg:py-14">
         <div className="max-w-xs">
           <Link to="/" className="inline-flex items-center gap-3">

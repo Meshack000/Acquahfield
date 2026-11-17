@@ -9,7 +9,7 @@ const levels = [
     ages: "Babies & toddlers",
     text: "A gentle, loving start with play, songs, sensory activities and routines that build trust.",
     items: ["Play and sensory learning", "Early language and songs", "Caring, attentive staff"],
-    src: img.classroomCollab,
+    src: img.mockElection,
     bar: "bg-bubblegum",
   },
   {
@@ -55,7 +55,7 @@ const levels = [
         text: "Pupils take their coding further by learning website development.",
       },
     ],
-    src: img.mockElection,
+    src: img.classroomCollab,
     bar: "bg-brand-500",
   },
 ];
