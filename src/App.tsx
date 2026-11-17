@@ -9,6 +9,7 @@ import Admissions from "@/pages/Admissions";
 import Contact from "@/pages/Contact";
 import Gallery from "@/pages/Gallery";
 import Programmes from "@/Programmes";
+import SmartTribeCompetition from "@/pages/SmartTribeCompetition";
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />
         <Route path="programmes" element={<Programmes />} />
+        <Route path="smarttribe-competition" element={<SmartTribeCompetition />} />
       </Route>
     </Routes>
   );

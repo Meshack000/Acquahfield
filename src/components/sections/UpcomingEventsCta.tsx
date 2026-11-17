@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { PawPrint, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { img } from "@/lib/images";
 import { school } from "@/data/site";
 import Button from "@/components/ui/buttons";
@@ -12,6 +14,7 @@ type UpcomingEvent = {
   imagePosition?: string;
   date: string;
   dateLabel: string;
+  href?: string;
 };
 
 const events: UpcomingEvent[] = [
@@ -34,13 +37,14 @@ const events: UpcomingEvent[] = [
     dateLabel: "26 Feb 2027",
   },
   {
-    title: "SmartTribe Coding Competition",
-    description: "Solve challenges and create with code.",
-    image: img.smartTribe,
-    imageAlt: "Acquahfield students learning to code with SmartTribe",
+    title: "SmartTribe Competition",
+    description: "Challenge your skills in abacus, coding, games and web building.",
+    image: img.smartTribeCompetition,
+    imageAlt: "SmartTribe competition",
     imagePosition: "object-[65%_center]",
     date: "2027-03-12",
     dateLabel: "12 Mar 2027",
+    href: "/smarttribe-competition",
   },
   {
     title: "Kumasi Zoo Excursion",
@@ -95,47 +99,54 @@ export default function UpcomingEventsCta() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map(({ title, description, image, imageAlt, imagePosition, date, dateLabel }) => (
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {events.map(({ title, description, image, imageAlt, imagePosition, date, dateLabel, href }) => (
               <article
                 key={title}
-                className="group relative isolate aspect-square overflow-hidden rounded-3xl bg-navy-900 text-white"
+                className="group rounded-[1.75rem] border border-navy-900/10 bg-white p-3 shadow-[0_12px_35px_-22px_rgba(11,31,92,0.45)]"
               >
-                {image ? (
-                  <img
-                    src={image}
-                    alt={imageAlt ?? ""}
-                    loading="lazy"
-                    decoding="async"
-                    className={`absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${imagePosition ?? ""}`}
-                  />
-                ) : (
-                  <PawPrint
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-1/3 -z-20 h-32 w-32 -translate-x-1/2 -translate-y-1/2 text-white/15"
-                  />
-                )}
-                <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/95 via-navy-950/25 to-transparent" />
-                <div className="flex h-full flex-col justify-end p-4 sm:p-5">
-                  <p className="mb-1 text-xs font-semibold text-white/80">
-                    <time dateTime={date}>{dateLabel}</time>
-                    {remainingDays[title] !== undefined && remainingDays[title] !== null && (
-                      <>
-                        {" · "}
-                        {remainingDays[title] < 0
-                          ? "Date passed"
-                          : remainingDays[title] === 0
-                            ? "Today"
-                            : `${remainingDays[title]} days to go`}
-                      </>
-                    )}
-                  </p>
-                  <h3 className="text-xl font-semibold leading-tight text-white sm:text-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-brand-50">
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={imageAlt ?? ""}
+                      loading="lazy"
+                      decoding="async"
+                      className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${imagePosition ?? ""}`}
+                    />
+                  ) : (
+                    <PawPrint
+                      aria-hidden="true"
+                      className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 text-navy-900/15"
+                    />
+                  )}
+                  {remainingDays[title] !== undefined && remainingDays[title] !== null && (
+                    <span className="absolute right-3 top-3 rounded-full bg-navy-950/80 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm">
+                      {remainingDays[title] < 0
+                        ? "Past"
+                        : remainingDays[title] === 0
+                          ? "Today"
+                          : `${remainingDays[title]} days`}
+                    </span>
+                  )}
+                </div>
+                <div className="px-2 pb-1 pt-4">
+                  <time dateTime={date} className="text-xs font-bold uppercase tracking-wide text-brand-600">
+                    {dateLabel}
+                  </time>
+                  <h3 className="mt-1.5 text-lg font-semibold leading-tight text-navy-900">
                     {title}
                   </h3>
-                  <p className="mt-1 text-sm leading-snug text-white/85">
+                  <p className="mt-1.5 min-h-10 text-sm leading-snug text-muted">
                     {description}
                   </p>
+                  <Link
+                    to={href ?? "/news-events"}
+                    className="mt-4 flex w-full items-center justify-between rounded-xl bg-navy-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+                  >
+                    View event
+                    <ArrowRight size={17} />
+                  </Link>
                 </div>
               </article>
             ))}

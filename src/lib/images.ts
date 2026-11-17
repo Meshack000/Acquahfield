@@ -10,6 +10,7 @@ import electionBoy from "@/assets/images/k.webp";
 import smartTribe from "@/assets/images/smartribe.webp";
 import kindergarten from "@/assets/images/KG.webp";
 import lowerGrade from "@/assets/images/LW.webp";
+import smartTribeCompetition from "@/assets/images/ww.jpeg";
 
 export const img = {
   facade,
@@ -24,4 +25,5 @@ export const img = {
   youngVoter,
   electionBoy,
   smartTribe,
+  smartTribeCompetition,
 };

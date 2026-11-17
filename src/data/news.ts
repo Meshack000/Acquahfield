@@ -7,6 +7,12 @@ export type EventItem = { title: string; date: string; time?: string; place?: st
 export const news: NewsItem[] = [];
 export const events: EventItem[] = [
   {
+    title: "SmartTribe Competition",
+    date: "12 March 2027",
+    place: "Acquahfield Montessori School",
+    text: "Abacus, Scratch games, website building and coding challenges.",
+  },
+  {
     title: "Kumasi Zoo Excursion",
     date: "April 2027",
     place: "Kumasi Zoo",
