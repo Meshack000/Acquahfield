@@ -24,8 +24,7 @@ export default function Navbar() {
         );
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 shadow-soft backdrop-blur">
-      <div className="rainbow-bar h-1.5" />
+    <header className="sticky top-0 z-50 border-b border-navy-900/10 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         <Link to="/" className="inline-flex items-center gap-2 font-display text-xl font-semibold text-navy-900">
           <img
@@ -34,10 +33,7 @@ export default function Navbar() {
             decoding="async"
             className="h-10 w-10 shrink-0 object-contain"
           />
-          <span>
-            {school.short}
-            <span className="text-bubblegum"> Montessori</span>
-          </span>
+          <span>{school.short} Montessori</span>
         </Link>
 
         {/* DESKTOP */}
@@ -47,8 +43,8 @@ export default function Navbar() {
               <div key={l.label} className="group relative">
                 <NavLink
                   to={l.to}
-                  className={`flex items-center gap-1 rounded-full px-4 py-2 font-semibold transition hover:text-bubblegum ${
-                    isActive(l) ? "text-bubblegum" : "text-navy-900"
+                  className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold transition hover:text-brand-600 ${
+                    isActive(l) ? "border-b-2 border-navy-900 text-navy-900" : "text-navy-900/75"
                   }`}
                 >
                   {l.label}
@@ -64,7 +60,7 @@ export default function Navbar() {
                       <li key={c.label}>
                         <Link
                           to={c.to}
-                          className="block rounded-xl px-4 py-2.5 font-semibold text-navy-900 transition hover:bg-brand-50 hover:text-bubblegum"
+                          className="block rounded-lg px-4 py-2.5 font-semibold text-navy-900 transition hover:bg-brand-50 hover:text-brand-600"
                         >
                           {c.label}
                         </Link>
@@ -77,15 +73,15 @@ export default function Navbar() {
               <NavLink
                 key={l.label}
                 to={l.to}
-                className={`rounded-full px-4 py-2 font-semibold transition hover:text-bubblegum ${
-                  isActive(l) ? "text-bubblegum" : "text-navy-900"
+                className={`px-3 py-2 text-sm font-semibold transition hover:text-brand-600 ${
+                  isActive(l) ? "border-b-2 border-navy-900 text-navy-900" : "text-navy-900/75"
                 }`}
               >
                 {l.label}
               </NavLink>
             ),
           )}
-          <Button to="/contact" variant="accent" className="ml-3">
+          <Button to="/contact" variant="primary" className="ml-3 rounded-lg px-5 py-2.5">
             Enrol now
           </Button>
         </nav>
@@ -120,10 +116,10 @@ export default function Navbar() {
                       />
                     </button>
                     {expanded === l.label && (
-                      <ul className="mb-2 ml-3 space-y-1 border-l-2 border-bubblegum/40 pl-3">
+                      <ul className="mb-2 ml-3 space-y-1 border-l-2 border-navy-900/15 pl-3">
                         {l.children.map((c) => (
                           <li key={c.label}>
-                            <Link to={c.to} className="block rounded-lg px-3 py-2 text-muted hover:text-bubblegum">
+                            <Link to={c.to} className="block rounded-lg px-3 py-2 text-muted hover:text-brand-600">
                               {c.label}
                             </Link>
                           </li>
@@ -139,7 +135,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Button to="/contact" variant="accent" className="mt-4 w-full justify-center">
+          <Button to="/contact" variant="primary" className="mt-4 w-full justify-center rounded-lg">
             Enrol now
           </Button>
         </nav>
