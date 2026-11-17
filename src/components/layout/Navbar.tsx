@@ -33,7 +33,10 @@ export default function Navbar() {
             decoding="async"
             className="h-10 w-10 shrink-0 object-contain"
           />
-          <span>{school.short} Montessori</span>
+          <span>
+            {school.short}
+            <span className="text-bubblegum"> Montessori</span>
+          </span>
         </Link>
 
         {/* DESKTOP */}
