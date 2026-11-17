@@ -7,10 +7,10 @@ import WhyUs from "@/components/sections/WhyUs";
 import UpcomingEventsCta from "@/components/sections/UpcomingEventsCta";
 
 const levels = [
-  { name: "Creche", ages: "Babies & toddlers", icon: Baby, bar: "bg-bubblegum", tint: "bg-bubblegum/10 text-bubblegum" },
-  { name: "Kindergarten", ages: "KG 1 – KG 2", icon: Blocks, bar: "bg-tangerine", tint: "bg-tangerine/15 text-tangerine" },
-  { name: "Lower Primary", ages: "Grade 1 – 3", icon: BookOpen, bar: "bg-mint", tint: "bg-mint/15 text-mint" },
-  { name: "Upper Primary", ages: "Grade 4 – 7", icon: GraduationCap, bar: "bg-brand-500", tint: "bg-brand-500/10 text-brand-500" },
+  { name: "Creche", ages: "Babies & toddlers", icon: Baby, tint: "bg-navy-950/[0.06] text-navy-900" },
+  { name: "Kindergarten", ages: "KG 1 – KG 2", icon: Blocks, tint: "bg-navy-950/[0.06] text-navy-900" },
+  { name: "Lower Primary", ages: "Grade 1 – 3", icon: BookOpen, tint: "bg-navy-950/[0.06] text-navy-900" },
+  { name: "Upper Primary", ages: "Grade 4 – 7", icon: GraduationCap, tint: "bg-navy-950/[0.06] text-navy-900" },
 ];
 
 export default function Home() {
@@ -81,13 +81,12 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-            {levels.map(({ name, ages, icon: Icon, bar, tint }) => (
+            {levels.map(({ name, ages, icon: Icon, tint }) => (
               <Link
                 key={name}
                 to="/academics"
                 className="group relative flex min-h-36 flex-col overflow-hidden rounded-2xl border border-brand-200/70 bg-white p-4 transition-colors hover:border-brand-500/60 sm:min-h-48 sm:rounded-card sm:p-6"
               >
-                <span className={`absolute inset-x-0 top-0 h-1 ${bar}`} />
                 <span className="flex items-center justify-between gap-2">
                   <span className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12 sm:rounded-2xl ${tint}`}>
                     <Icon size={20} className="sm:hidden" />
