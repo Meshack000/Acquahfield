@@ -41,12 +41,7 @@ export default function Home() {
 
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-semibold backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-sunshine" />
-              Creche · KG · Grade 1–7
-            </span>
-
-            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] text-white md:text-7xl">
+            <h1 className="text-5xl font-semibold leading-[1.05] text-white md:text-7xl">
               {lead} <span className="text-sunshine">{tail}</span>
             </h1>
 
