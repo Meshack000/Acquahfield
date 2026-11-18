@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 export default function ScrollManager() {
   const { pathname, hash } = useLocation();
+  const scrollKey = `scroll-position:${pathname}`;
 
   useEffect(() => {
     const previousRestoration = window.history.scrollRestoration;
@@ -13,10 +14,20 @@ export default function ScrollManager() {
   }, []);
 
   useLayoutEffect(() => {
-    if (!hash) {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-    }
-  }, [pathname, hash]);
+    return () => {
+      sessionStorage.setItem(`scroll-position:${pathname}`, String(window.scrollY));
+    };
+  }, [pathname]);
+
+  useLayoutEffect(() => {
+    if (hash) return;
+    const savedPosition = sessionStorage.getItem(scrollKey);
+    window.scrollTo({
+      top: savedPosition === null ? 0 : Number(savedPosition),
+      left: 0,
+      behavior: "instant",
+    });
+  }, [pathname, hash, scrollKey]);
 
   useEffect(() => {
     if (hash) {

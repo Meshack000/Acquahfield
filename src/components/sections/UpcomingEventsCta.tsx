@@ -39,7 +39,7 @@ const events: UpcomingEvent[] = [
   {
     title: "SmartTribe Competition",
     description: "Challenge your skills in abacus, coding, games and web building.",
-    image: img.smartTribeCompetition,
+    image: img.smartTribe,
     imageAlt: "SmartTribe competition",
     imagePosition: "object-[65%_center]",
     date: "2027-03-12",
